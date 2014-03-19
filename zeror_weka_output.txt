@@ -1,0 +1,63 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR 
+Relation:     output-weka.filters.unsupervised.attribute.Remove-R3-4
+Instances:    21961
+Attributes:   22
+              ï»¿ilkid
+              year
+              team
+              leag
+              gp
+              minutes
+              pts
+              oreb
+              dreb
+              reb
+              asts
+              stl
+              blk
+              turnover
+              pf
+              fga
+              fgm
+              fta
+              ftm
+              tpa
+              tpm
+              allstar
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: NO
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       20343               92.6324 %
+Incorrectly Classified Instances      1618                7.3676 %
+Kappa statistic                          0     
+Mean absolute error                      0.1365
+Root mean squared error                  0.2612
+Relative absolute error                100      %
+Root relative squared error            100      %
+Coverage of cases (0.95 level)         100      %
+Mean rel. region size (0.95 level)     100      %
+Total Number of Instances            21961     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    1.000    0.926      1.000    0.962      0.000    0.499     0.926     NO
+                 0.000    0.000    0.000      0.000    0.000      0.000    0.499     0.074     YES
+Weighted Avg.    0.926    0.926    0.858      0.926    0.891      0.000    0.499     0.863     
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 20343     0 |     a = NO
+  1618     0 |     b = YES
+
