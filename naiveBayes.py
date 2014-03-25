@@ -164,7 +164,7 @@ def beginClassification(input_data, test_data, dataFormat):
     print("\n%5.3f percent correct" %((correct * 100) / total))
     print("total of %i instances" % total)
 
-beginClassification("input_data","test_data", "num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,class")
+beginClassification("input_data","test_data", "comment,,comment,comment,comment,comment,comment,num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,class")
 #c = Classifier("house-votes/hv", 0,num
 #                       "class\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr")
 
