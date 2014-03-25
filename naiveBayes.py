@@ -76,7 +76,7 @@ class Classifier:
         
 
            
-    def testClassifier(self, input_data, test_data):
+    def testClassifier(self, test_data):
         """Evaluate the classifier with data from the file
         test_data"""
         filename = test_data
@@ -125,10 +125,10 @@ class Classifier:
         return(max(results)[1])
  
 
-def tenfold(input_data, test_data, dataFormat):
+def beginClassification(input_data, test_data, dataFormat):
     results = {}
     c = Classifier(input_data,  dataFormat)
-    t = c.testClassifier(input_data,test_data)
+    t = c.testClassifier(test_data)
     for (key, value) in t.items():
         results.setdefault(key, {})
         for (ckey, cvalue) in value.items():
@@ -164,7 +164,7 @@ def tenfold(input_data, test_data, dataFormat):
     print("\n%5.3f percent correct" %((correct * 100) / total))
     print("total of %i instances" % total)
 
-tenfold("input_data","test_data", "num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,class")
+beginClassification("input_data","test_data", "num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,class")
 #c = Classifier("house-votes/hv", 0,num
 #                       "class\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr")
 
