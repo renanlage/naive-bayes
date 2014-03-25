@@ -7,7 +7,7 @@
 # _____________________________________________________________________
 
 class Classifier:
-    def __init__(self, input_data, test_data, dataFormat):
+    def __init__(self, input_data, dataFormat):
 
         """ a classifier will be built from files with the input_data
         excluding the file with test_data. dataFormat is a string that
@@ -61,7 +61,7 @@ class Classifier:
         # first prior probabilities p(h)
         #
         for (category, count) in classes.items():
-            self.prior[category] = count / total
+            self.prior[category] = count / float(total)
         #
         # now compute conditional probabilities p(h|D)
         #
@@ -71,15 +71,14 @@ class Classifier:
                   self.conditional[category].setdefault(col, {})
                   for (attrValue, count) in valueCounts.items():
                       self.conditional[category][col][attrValue] = (
-                          count / classes[category])
-        self.tmp =  counts               
+                          count / float(classes[category]))
+        self.tmp =  counts                
         
 
            
     def testClassifier(self, input_data, test_data):
         """Evaluate the classifier with data from the file
         test_data"""
-        
         filename = test_data
         f = open(filename)
         lines = f.readlines()
@@ -128,7 +127,7 @@ class Classifier:
 
 def tenfold(input_data, test_data, dataFormat):
     results = {}
-    c = Classifier(input_data, test_data, dataFormat)
+    c = Classifier(input_data,  dataFormat)
     t = c.testClassifier(input_data,test_data)
     for (key, value) in t.items():
         results.setdefault(key, {})
@@ -143,7 +142,7 @@ def tenfold(input_data, test_data, dataFormat):
     header =    "             "
     subheader = "               +"
     for category in categories:
-        header += "% 10s   " % category
+        header += "%8s   " % category
         subheader += "-------+"
     print (header)
     print (subheader)
@@ -165,8 +164,8 @@ def tenfold(input_data, test_data, dataFormat):
     print("\n%5.3f percent correct" %((correct * 100) / total))
     print("total of %i instances" % total)
 
-tenfold("input_data","test_data", "attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,attr,class")
-#c = Classifier("house-votes/hv", 0,
+tenfold("input_data","test_data", "num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,num,class")
+#c = Classifier("house-votes/hv", 0,num
 #                       "class\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr\tattr")
 
 #c = Classifier("iHealth/i", 10,
